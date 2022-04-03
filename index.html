@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		.box {
+			border: 2px solid pink;
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+	<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+</head>
+<body>
+	<button id="btn">debounce</button>
+	<button id="btn1">send request</button>
+	<div class="box">1</div>
+	<div class="box">2</div>
+	<div class="box">3</div>
+	<div class="box">4</div>
+	<div class="box">5</div>
+	<div class="box">6</div>
+	<div class="box">7</div>
+	<div class="box">8</div>
+	<div class="box">9</div>
+	<div class="box">10</div>
+	<div class="box">11</div>
+	<div class="box">12</div>
+	<div class="box">13</div>
+	<div class="box">14</div>
+	<div class="box">15</div>
+	<div class="box">16</div>
+</body>
+<script src="./debounce.js"></script>
+<script src="./throttle.js"></script>
+<script src="./loop.js"></script>
+<script>
+	const btn1 = document.getElementById('btn1');
+	btn1.addEventListener('click', () => {
+		axios.get('http://127.0.0.1:9000/proxy/api/search') // 向3001端口请求数据
+      .then(res => res.data)
+      .then(res => console.log(res.data))
+	});
+</script>
+</html>
+
+<!-- fetch('http://localhost:3000/api/test')
+		.then(response => response.json())
+		.then(data => console.log(data))
+		.catch(err => console.log(err)); -->
